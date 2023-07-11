@@ -23,4 +23,8 @@ public class PostService {
     public String removePost(int postId) {
         return postRepository.deletePost(postId);
     }
+
+    public Post setPost(Post post) {
+        return postRepository.insertPost(post);
+    }
 }

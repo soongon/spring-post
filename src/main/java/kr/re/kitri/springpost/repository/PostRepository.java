@@ -27,4 +27,9 @@ public class PostRepository {
         // DB에서 해당 postID의 글을 삭제를 수행한다.
         return "잘 삭제되었씁니다.";
     }
+
+    public Post insertPost(Post post) {
+        // DB에서 insert 수행...
+        return post;
+    }
 }
