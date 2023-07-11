@@ -19,4 +19,8 @@ public class PostService {
     public Post getPostById(int postId) {
         return postRepository.selectPostById(postId);
     }
+
+    public String removePost(int postId) {
+        return postRepository.deletePost(postId);
+    }
 }
