@@ -3,4 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.re.kitri.springpost.repository.PostRepository">
+    <select id="selectAllPosts" resultType="kr.re.kitri.springpost.model.Post">
+        SELECT  post_id as postId,
+                title   as title,
+                body    as body,
+                likes   as likes,
+        FROM    post
+    </select>
+    <select id="selectPostById"
+            resultType="kr.re.kitri.springpost.model.Post"
+            parameterType="int">
+        SELECT  post_id,
+                title,
+                body,
+                likes
+        FROM    post
+        WHERE   post_id = #{postId}
+    </select>
 </mapper>
