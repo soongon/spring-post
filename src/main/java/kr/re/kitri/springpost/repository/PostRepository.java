@@ -13,6 +13,7 @@ public interface PostRepository {
 
     List<Post> selectAllPosts();
     Post selectPostById(int postId);
-    String deletePost(int postId);
-    Post insertPost(Post post);
+    void deletePost(int postId);
+    void insertPost(Post post);
+    void updatePost(Post post);
 }

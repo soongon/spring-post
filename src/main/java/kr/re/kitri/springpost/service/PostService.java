@@ -20,11 +20,17 @@ public class PostService {
         return postRepository.selectPostById(postId);
     }
 
-    public String removePost(int postId) {
-        return postRepository.deletePost(postId);
+    public void removePost(int postId) {
+        postRepository.deletePost(postId);
     }
 
     public Post setPost(Post post) {
-        return postRepository.insertPost(post);
+        postRepository.insertPost(post);
+        return post;
+    }
+
+    public Post updatePost(Post post) {
+        postRepository.updatePost(post);
+        return post;
     }
 }

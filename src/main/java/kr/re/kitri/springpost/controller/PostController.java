@@ -24,13 +24,20 @@ public class PostController {
     }
 
     @DeleteMapping("posts/{postId}")
-    public String removePost(@PathVariable int postId) {
-        return postService.removePost(postId);
+    public void removePost(@PathVariable int postId) {
+        postService.removePost(postId);
     }
 
     @PostMapping("/posts")
     public Post registPost(@RequestBody Post post) {
         System.out.println(post);  // 차후 logging 으로 변경 필요
         return postService.setPost(post);
+    }
+
+    @PutMapping("/posts/{postId}")
+    public Post updatePost(@PathVariable int postId, @RequestBody Post post) {
+        System.out.println(post);
+        post.setPostId(postId);
+        return postService.updatePost(post);
     }
 }
