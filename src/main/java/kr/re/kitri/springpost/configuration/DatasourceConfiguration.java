@@ -2,6 +2,8 @@ package kr.re.kitri.springpost.configuration;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +15,9 @@ import javax.sql.DataSource;
 @PropertySource("classpath:/application.properties")
 public class DatasourceConfiguration {
 
+    public static final Logger log =
+            LoggerFactory.getLogger(DatasourceConfiguration.class);
+
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
     public HikariConfig hikariConfig() {
@@ -22,7 +27,7 @@ public class DatasourceConfiguration {
     @Bean
     public DataSource dataSource() {
         DataSource dataSource = new HikariDataSource(hikariConfig());
-        System.out.println(dataSource);
+        log.debug("datasource : {}", dataSource);
         return dataSource;
     }
 }

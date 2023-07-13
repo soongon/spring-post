@@ -2,11 +2,15 @@ package kr.re.kitri.springpost.controller;
 
 import kr.re.kitri.springpost.model.Post;
 import kr.re.kitri.springpost.service.PostService;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j  // lombok 의 log 를 사용하기 위한 annotation
 @RestController
 public class PostController {
 
@@ -15,6 +19,7 @@ public class PostController {
 
     @GetMapping("posts")
     public List<Post> viewAllPosts() {
+        log.debug("전체보기 요청 시작..");
         return postService.getAllPosts();
     }
 
