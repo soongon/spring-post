@@ -7,7 +7,7 @@
         SELECT  post_id as postId,
                 title   as title,
                 body    as body,
-                likes   as likes
+                likes   as likes,
         FROM    post
     </select>
     <select id="selectPostById"
