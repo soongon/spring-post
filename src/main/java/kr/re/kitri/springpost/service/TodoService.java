@@ -23,6 +23,7 @@ public class TodoService {
     }
 
     public Todo setPost(Todo todo) {
-        return todoRepository.insertTodo(todo);
+        todoRepository.insertTodo(todo);
+        return todo;
     }
 }
